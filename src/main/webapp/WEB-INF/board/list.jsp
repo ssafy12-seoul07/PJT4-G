@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core"%>
-<%@ page import="java.util.*" %>
-<%@ page import="com.ssafy.pjt.model.dto.Board" %>
-<%@ page import="com.ssafy.pjt.model.repository.BoardRepositoryImpl" %>
-<%@ page import="com.ssafy.pjt.model.repository.BoardRepository" %>
+	pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 
 <!DOCTYPE html>
 <html>
@@ -23,18 +19,18 @@
 			<th>조회 수</th>
 			<th>등록일</th>
 		</tr>
-		
-		<c:foreach items="${list }" var="video">
+
+		<c:forEach items="${list }" var="video">
 			<tr>
-				<th>${video.videoId }</th>
-				<th><a href="board?action=detail&id=${video.id }">${video.title }</a></th>
-				<th>${video.part }</th>
-				<th>${video.channelName }</th>
-				<th>${video.viewCnt }
-				<th>${video.regDate }</th>
+				<td>${video.videoId }</td>
+				<td><a href="main?action=detail&id=${video.videoId }">${video.title }</a></td>
+				<td>${video.part }</td>
+				<td>${video.channelName }</td>
+				<td>${video.viewCnt }</td>
+				<td>${video.regDate }</td>
 			</tr>
-		</c:foreach>
-			
+		</c:forEach>
+
 	</table>
 </body>
 </html>

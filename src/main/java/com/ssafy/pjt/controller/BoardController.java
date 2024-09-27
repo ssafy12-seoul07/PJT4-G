@@ -110,7 +110,7 @@ public class BoardController extends HttpServlet {
 		
 		service.writeReview(review);
 		
-		res.sendRedirect("board?action=list");
+		res.sendRedirect("main?action=list");
 		
 	}
 

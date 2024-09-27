@@ -9,6 +9,6 @@
 </head>
 <body>
 	<h2>Stretzino</h2>
-	<a href="board?action=list">영상 목록</a>
+	<a href="main?action=list">영상 목록</a>
 </body>
 </html>

@@ -7,10 +7,10 @@
 
     
 
-<%
+<%-- <%
 	Board board = (Board) request.getAttribute("board");
 	List<Review> list = (List<Review>) board.getReviewList().values();
-%>
+%> --%>
 
 <table>
 	<tr>
@@ -18,17 +18,15 @@
 		<th>리뷰 내용</th>
 		<th>작성자</th>
 		<th>등록일자</th>
-		</tr>
+	</tr>
 	
-	<c:forEach items ="${list }" var="Review"> 
+	<%-- <c:forEach items ="${list }" var="Review"> 
 		<tr>
-			<tb>${Review.id }</tb>	
-			<tb>${Review.content }</tb>	
-			<tb>${Review.writer }</tb>	
-			<tb>${Review.regDate }</tb>	
-			<tb><a href="board.action=detail&id="${board.id }">{board.title}</a></tb>
-			
+			<td>${Review.id }</td>	
+			<td>${Review.content }</td>	
+			<td>${Review.writer }</td>	
+			<td>${Review.regDate }</td>	
 		</tr>
 		
-	</c:forEach> 
+	</c:forEach>  --%>
 </table>
