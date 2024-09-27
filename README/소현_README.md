@@ -1,4 +1,5 @@
-# 관통 PJT04_백엔드
+# 프로젝트 회고
+## 관통 PJT04_백엔드
 ### 역할 분담
 - 팀장 : 소현
   - back 담당 : dto, repository, service 작성
