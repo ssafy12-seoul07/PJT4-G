@@ -30,6 +30,7 @@ public class Board implements Serializable{
 		this.regDate = new Date().toString();
 	}
 
+	
 	public Map<Integer, Review> getReviewList() {
 		return reviewList;
 	}
