@@ -4,23 +4,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>영상 등록</title>
+<title>리뷰 업데이트</title>
 </head>
 <body>
-	<h2>영상 수정</h2>
-	<form action="board" method="post">
+	<h2>리뷰 수정</h2>
+	<form action="review" method="post">
 		<input type="hidden" name="action" value="update">
-		<input type="hidden" name="id" value="${board.id }">
+		<input type="hidden" name="id" value="${review.id }">
 		<div>
-			글 제목 :  <input type="text" name="title" value="${board.title }">
+			리뷰 :  <input type="text" name="title" value="${board.title }">
 		</div>
 		<div>
-			글 쓰니 :  <input type="text" name="writer" value="${board.writer }">
+			작성자 :  <input type="text" name="writer" value="${board.writer }">
 		</div>
 		<div>
-			글 내용 :  <textarea rows="10" cols="30" name="content">${board.content }</textarea>
+			내용 :  <textarea rows="10" cols="30" name="content">${board.content }</textarea>
 		</div>
-		<input type="submit" value="게시글 수정">
+		<div> 
+		<input type="submit" value="리뷰 수정">
+		</div>
 	</form>
 </body>
 </html>
