@@ -48,4 +48,9 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
+	@Override
+	public Review getReview(Review review) {
+		return repo.selectOneReview(review);
+	}
+
 }

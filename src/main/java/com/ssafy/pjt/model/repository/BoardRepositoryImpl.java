@@ -81,8 +81,13 @@ public class BoardRepositoryImpl implements BoardRepository {
 
 	@Override
 	public void deleteReview(Review review) {
-		// TODO Auto-generated method stub
+		boards.get(review.getVideoId()).getReviewList().remove(review.getId());
 
+	}
+
+	@Override
+	public Review selectOneReview(Review review) {
+		return boards.get(review.getVideoId()).getReviewList().get(review.getId());
 	}
 
 }

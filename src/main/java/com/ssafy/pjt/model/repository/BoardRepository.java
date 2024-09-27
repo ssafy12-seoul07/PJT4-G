@@ -24,4 +24,7 @@ public interface BoardRepository {
 	// 댓글 삭제
 	public abstract void deleteReview(Review review);
 
+	// 댓글 조회
+	public abstract Review selectOneReview(Review review);
+
 }

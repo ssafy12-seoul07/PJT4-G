@@ -8,8 +8,8 @@ import com.ssafy.pjt.model.dto.Review;
 public interface BoardService {
 	// 전체 게시글 조회
 	public abstract List<Board> getList(); // public abstract 생략가능
-	// 게시글 조회
 
+	// 게시글 조회
 	public abstract Board getBoard(String videoId);
 
 	// 댓글 작성
@@ -20,5 +20,8 @@ public interface BoardService {
 
 	// 댓글 삭제
 	public abstract void deleteReview(Review review);
+	
+	// 댓글 조회
+	public abstract Review getReview(Review review);
 
 }
