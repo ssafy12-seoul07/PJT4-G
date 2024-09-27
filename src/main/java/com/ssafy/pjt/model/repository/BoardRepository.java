@@ -16,7 +16,7 @@ public interface BoardRepository {
 	public abstract void updateViewCnt(String videoId);
 	
 	// 댓글 작성
-	public abstract void insertReview(Review review);
+	public abstract void insertReview(String videoId, Review review);
 	
 	// 댓글 수정
 	public abstract void updateReview(Review review);

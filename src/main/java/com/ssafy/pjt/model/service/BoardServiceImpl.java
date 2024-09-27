@@ -27,12 +27,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Board getBoard(String videoId) {
 		repo.updateViewCnt(videoId);
+//		System.out.println(repo.selectOne(videoId));
 		return repo.selectOne(videoId);
 	}
 
 	@Override
-	public void writeReview(Review review) {
-		repo.insertReview(review);
+	public void writeReview(String videoId, Review review) {
+		repo.insertReview(videoId, review);
 
 	}
 

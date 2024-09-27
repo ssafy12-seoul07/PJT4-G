@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.ssafy.pjt.model.dto.Board;
 import com.ssafy.pjt.model.dto.Review;
@@ -64,13 +65,17 @@ public class BoardRepositoryImpl implements BoardRepository {
 	@Override
 	public void updateViewCnt(String videoId) {
 		Board b = boards.get(videoId);
+		System.out.println(b);
 		b.setViewCnt(b.getViewCnt() + 1);
 	}
 
 	@Override
-	public void insertReview(Review review) {
-		// TODO Auto-generated method stub
-
+	public void insertReview(String videoId, Review review) {
+//		System.out.println(videoId);
+//		System.out.println(review);
+		Board v = boards.get(videoId);
+		v.getReviewList().add(review);
+//		System.out.println(v.getReviewList());
 	}
 
 	@Override
@@ -81,9 +86,24 @@ public class BoardRepositoryImpl implements BoardRepository {
 
 	@Override
 	public void deleteReview(Review review) {
-		boards.get(review.getVideoId()).getReviewList().remove(review.getId());
-
+		 Board board = boards.get(review.getVideoId());
+		    if (board != null) {
+		        // 리뷰 리스트 가져오기
+		        List<Review> reviewList = new ArrayList<>(board.getReviewList());
+		        if (!reviewList.isEmpty()) {
+		            // 마지막 리뷰 제거
+		            reviewList.remove(reviewList.size() - 1);
+		            // 제거한 리뷰를 다시 보드에 설정 (리스트 업데이트)
+//		            board.setReviewList(reviewList.stream().collect(Collectors.toMap(Review::getId, Function.identity())));
+		        }
+		    }
 	}
+//		boards.get(review.getVideoId())
+//		.getReviewList()
+//		.remove(boards.get(review.getVideoId())
+//				.getReviewList().size() - 1);
+//
+//	}
 
 	@Override
 	public Review selectOneReview(Review review) {

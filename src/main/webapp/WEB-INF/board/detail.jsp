@@ -17,29 +17,29 @@
 	<div>${board.viewCnt }</div>
 	<div>${board.regDate }</div>
 	
-	<%-- <%@ include file="reviewList.jsp"  %> --%>
-<%
-	Board board = (Board) request.getAttribute("board");
-	List<Review> list = new ArrayList<>(board.getReviewList().values());
-%>
+	<%@ include file="reviewList.jsp"  %>c
+<%-- 	<jsp:include page="reviewList.jsp"></jsp:include> --%>
 
-<table>
-	<tr>
-		<th>회원 아이디</th>
-		<th>리뷰 내용</th>
-		<th>작성자</th>
-		<th>등록일자</th>
-	</tr>
+<!-- <table> -->
+<!-- 	<tr> -->
+<!-- 		<th>회원 아이디</th> -->
+<!-- 		<th>리뷰 내용</th> -->
+<!-- 		<th>작성자</th> -->
+<!-- 		<th>등록일자</th> -->
+<!-- 	</tr> -->
 	
-	<%-- <c:forEach items ="${list }" var="Review"> 
-		<tr>
-			<td>${Review.id }</td>	
-			<td>${Review.content }</td>	
-			<td>${Review.writer }</td>	
-			<td>${Review.regDate }</td>	
-		</tr>
+<%-- 	<c:forEach items ="${list }" var="review">  --%>
+<!-- 		<tr> -->
+<%-- 			<td>${review.id }</td>	 --%>
+<%-- 			<td>${review.content }</td>	 --%>
+<%-- 			<td>${review.writer }</td>	 --%>
+<%-- 			<td>${review.regDate }</td>	 --%>
+<!-- 		</tr> -->
 		
-	</c:forEach>  --%>
+<%-- 	</c:forEach> --%>
+<!-- </table> -->
+
+
 	<form action="main" method="post">
 		<input type="hidden" name="action" value="write">
 		<input type="hidden" name="videoId" value="${board.videoId}">
@@ -53,7 +53,7 @@
 		<input type="submit" value="리뷰 등록">
 	</form>
 	
-	<a href="main?action=delete&id=${board.videoId }">삭제</a>
+	<a href="main?action=remove&id=${board.videoId }">삭제</a>
 	<a href="main?action=updateform&id=${board.videoId }">수정</a>
 </body>
 </html>

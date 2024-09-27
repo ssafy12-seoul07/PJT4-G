@@ -13,7 +13,7 @@ public interface BoardService {
 	public abstract Board getBoard(String videoId);
 
 	// 댓글 작성
-	public abstract void writeReview(Review review);
+	public abstract void writeReview(String videoId, Review review);
 
 	// 댓글 수정
 	public abstract void modifyReview(Review review);

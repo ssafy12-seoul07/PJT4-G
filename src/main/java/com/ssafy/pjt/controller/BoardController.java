@@ -2,6 +2,7 @@ package com.ssafy.pjt.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.ssafy.pjt.model.dto.Board;
@@ -36,7 +37,7 @@ public class BoardController extends HttpServlet {
 		case "댓글수정":
 			doReviewModify(req, res);
 			break;
-		case "댓글삭제":
+		case "remove":
 			doReviewRemove(req, res);
 			break;
 		case "detail":
@@ -45,8 +46,19 @@ public class BoardController extends HttpServlet {
 		case "list":
 			doList(req, res);
 			break;
+		case "reviewList":
+			doreviewList(req, res);
+			break;
+			
 		}
 		
+	}
+
+	private void doreviewList(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		Board board = (Board) req.getAttribute("board");
+		// TODO Auto-generated method stub
+//		req.setAttribute("list", board.getReviewList());
+//		req.getRequestDispatcher("/WEB-INF/board/reviewList.jsp").forward(req, res);
 	}
 
 	private void doList(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -59,6 +71,7 @@ public class BoardController extends HttpServlet {
 		String id = req.getParameter("id");
 		
 		req.setAttribute("board", service.getBoard(id));
+		req.setAttribute("list", service.getBoard(id).getReviewList());
 		req.getRequestDispatcher("/WEB-INF/board/detail.jsp").forward(req, res);
 		
 	}
@@ -91,8 +104,7 @@ public class BoardController extends HttpServlet {
 	
 	private void doReviewRemove(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		Board board = service.getBoard(req.getParameter("videoId"));
-		Review review = service.getReview(board.getReviewList().get(Integer.parseInt(req.getParameter("id"))));
-		
+		Review review = board.getReviewList().get(board.getReviewList().size() - 1);
 		
 		service.deleteReview(review);
 		
@@ -108,7 +120,7 @@ public class BoardController extends HttpServlet {
 		//객체를 만들겠다
 		Review review = new Review(videoId, writer, content);
 		
-		service.writeReview(review);
+		service.writeReview(videoId, review);
 		
 		res.sendRedirect("main?action=list");
 		

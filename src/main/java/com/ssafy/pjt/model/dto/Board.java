@@ -1,15 +1,15 @@
 package com.ssafy.pjt.model.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class Board implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private Map<Integer, Review> reviewList = new HashMap<>();
-
+	//여기로 저장하자
+	private List<Review> reviewList = new ArrayList<>();
 	
 	private String videoId;
 	private String title;
@@ -26,16 +26,17 @@ public class Board implements Serializable{
 		this.title = title;
 		this.part = part;
 		this.channelName = channelName;
-//		this.viewCnt = 0;
+		this.viewCnt = 0;
 		this.regDate = new Date().toString();
 	}
 
 	
-	public Map<Integer, Review> getReviewList() {
+	public List<Review> getReviewList() {
+//		return new ArrayList<>(reviewList.values());\
 		return reviewList;
 	}
 
-	public void setReviewList(Map<Integer, Review> reviewList) {
+	public void setReviewList(List<Review> reviewList) {
 		this.reviewList = reviewList;
 	}
 

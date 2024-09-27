@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix ="c" uri = "jakarta.tags.core" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.ssafy.pjt.model.dto.Review" %>
@@ -7,26 +7,23 @@
 
     
 
-<%-- <%
-	Board board = (Board) request.getAttribute("board");
-	List<Review> list = (List<Review>) board.getReviewList().values();
-%> --%>
+
 
 <table>
 	<tr>
-		<th>È¸¿ø ¾ÆÀÌµğ</th>
-		<th>¸®ºä ³»¿ë</th>
-		<th>ÀÛ¼ºÀÚ</th>
-		<th>µî·ÏÀÏÀÚ</th>
+		<th>íšŒì› ì•„ì´ë””</th>
+		<th>ë¦¬ë·° ë‚´ìš©</th>
+		<th>ì‘ì„±ì</th>
+		<th>ë“±ë¡ì¼ì</th>
 	</tr>
 	
-	<%-- <c:forEach items ="${list }" var="Review"> 
+	<c:forEach items ="${list }" var="review"> 
 		<tr>
-			<td>${Review.id }</td>	
-			<td>${Review.content }</td>	
-			<td>${Review.writer }</td>	
-			<td>${Review.regDate }</td>	
+			<td>${review.id }</td>	
+			<td>${review.content }</td>	
+			<td>${review.writer }</td>	
+			<td>${review.regDate }</td>	
 		</tr>
 		
-	</c:forEach>  --%>
+	</c:forEach>
 </table>
